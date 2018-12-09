@@ -36,11 +36,9 @@ def get_all(PORTAL_USER, PORTAL_PW):
         })
 
     subjects = grades_res.json().get('data')
-    cont = 0
     array = []
     print([f'{dic["DescMateria"]} - {dic["Cal"] or 0}' for dic in subjects])
     for subject in subjects:
-        subject_grade = subject.get('Cal') + subject.get('Cal')
-        array[cont] = subject_grade
-        cont = cont+1
+        subject_grade = subject.get('DescMateria') + '-' + subject.get('Cal') + '\n'
+        array.append(subject_grade)
     return array
