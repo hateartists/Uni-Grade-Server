@@ -2,6 +2,36 @@ import React, { Component }from 'react';
 import { Button, Card, CardBody, CardTitle, CardText, Col } from 'mdbreact';
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      grades: null 
+    };
+  }
+
+  returnData = () =>{
+    this.props.grades()
+  }
+
+  register(){
+    let usr = document.getElementById('user').value
+    let email = document.getElementById('mail').value
+    let pass = document.getElementById('pass').value
+    const axios = require('axios');
+    axios.get('http://localhost:8000/api/register', {
+        user: usr,
+        mail: email,
+        pasw: pass
+    }).then((response) => {
+      this.setState({
+        grades: response.data
+      })
+    })
+  }
+
+
+
   render() {
     return (
       <Col>
@@ -18,7 +48,7 @@ class Register extends Component {
             </label>
             <input
               type="text"
-              id="defaultFormLoginEmailEx"
+              id="user"
               className="form-control"
             />
             <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
@@ -26,7 +56,7 @@ class Register extends Component {
             </label>
             <input
               type="email"
-              id="defaultFormLoginEmailEx"
+              id="mail"
               className="form-control"
             />
             <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
@@ -34,10 +64,10 @@ class Register extends Component {
             </label>
             <input
               type="password"
-              id="defaultFormLoginPasswordEx"
+              id="pass"
               className="form-control"
             />
-            <Button href="#">Registrarse</Button>
+            <Button onClick={this.register.bind(this)} onSubmit={this.register.bind(this)}>Registrarse</Button>
             </form>
           </CardBody>
         </Card>

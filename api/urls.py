@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('grades/', views.Grades)
+    path('grades/', views.Grades),
+    path('register/', views.CreateUser)
 ]
