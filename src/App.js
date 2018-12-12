@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import RegCard from './Register'
+import Footer from './Footer'
+
 import './App.css';
 
 class App extends Component {
@@ -6,7 +9,10 @@ class App extends Component {
     return (
       <div>
         <div className="login_panel">
-          <button className="">HOLA</button>
+          <RegCard/>
+        </div>
+        <div className="Footer">
+          <Footer/>
         </div>
       </div>
     );

@@ -1,10 +1,14 @@
 .login_panel{
   position: absolute;
-  top: 30%;
-  left: 30%;
+  top: 10%;
+  left: 20%;
   height: 20%;
   width: 40%;
+}
 
-  border: 1px;
-  background-color: black;
+.Footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
