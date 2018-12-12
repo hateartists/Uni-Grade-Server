@@ -17,6 +17,7 @@ class CardExample extends React.Component {
               Para obtener rápidamente tus calificaciones, registrate con un
               usuario, además de tu correo institucional y contraseña.
             </CardText>
+            <
             <Button href="#">Button</Button>
           </CardBody>
         </Card>
