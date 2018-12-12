@@ -5,7 +5,7 @@ class FooterPage extends Component {
   render() {
     return (
       <CookieConsent>
-        Tus correo institucional y contraseña no son guardados, no te preocupes.
+        Tu correo institucional y contraseña no son guardados, no te preocupes.
       </CookieConsent>
     );}
 }

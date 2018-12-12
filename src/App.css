@@ -1,7 +1,14 @@
-.login_panel{
+.register_panel{
   position: absolute;
   top: 10%;
   left: 20%;
+  height: 20%;
+  width: 40%;
+}
+.login_panel{
+  position: absolute;
+  top: 10%;
+  left: 50%;
   height: 20%;
   width: 40%;
 }
