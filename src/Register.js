@@ -1,17 +1,18 @@
 import React, { Component }from 'react';
 import { Button, Card, CardBody, CardTitle, CardText, Col } from 'mdbreact';
+import './Register.css'
 
 class Register extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      grades: null 
+      calif: [] 
     };
   }
 
   returnData = () =>{
-    this.props.grades()
+    this.props.callback(this.state.calif)
   }
 
   register(){
@@ -19,21 +20,22 @@ class Register extends Component {
     let email = document.getElementById('mail').value
     let pass = document.getElementById('pass').value
     const axios = require('axios');
-    axios.get('http://localhost:8000/api/register', {
+    axios.post('http://localhost:8000/api/register/', {
         user: usr,
         mail: email,
         pasw: pass
     }).then((response) => {
       this.setState({
-        grades: response.data
+        calif: response
       })
-    })
+    }).then(this.returnData)
   }
 
 
 
   render() {
     return (
+      <div className="separator">
       <Col>
         <Card style={{ width: "22rem" }}>
           <CardBody>
@@ -72,6 +74,7 @@ class Register extends Component {
           </CardBody>
         </Card>
       </Col>
+      </div>
     )
   }
 }

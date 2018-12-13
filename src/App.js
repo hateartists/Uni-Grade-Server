@@ -10,13 +10,14 @@ class App extends Component {
     super(props);
     
     this.state = {
-      grades: null 
+      grades: [] 
     };
   }
   All_Grades = (gradesJSON) => {
     this.setState({
       grades: gradesJSON
     })
+    console.log(this.state.grades)
   }
 
   render() {
@@ -26,7 +27,7 @@ class App extends Component {
           <RegCard callback={this.All_Grades}/>
         </div>
         <div className="login_panel">
-          <Grades/>
+          <Grades callback2={this.All_Grades}/>
         </div>
         <div className="Footer">
           <Footer/>
