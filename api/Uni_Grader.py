@@ -9,10 +9,9 @@ GRADES_URL = 'https://buhos.uson.mx/portalalumnos/obtener/calificacionesFinalesE
 INFO_URL = 'https://buhos.uson.mx/web/apps/portalAlumnos/index.php/auth/sesion/datos_alumno'
 CYCLE_URL = 'https://buhos.uson.mx/web/apps/portalAlumnos/index.php/horario/ciclosActivos'
 
-def get_cycle(session, url):
-
-    return 'as'
-
+def get_cycle_id(session, url):
+    cycle = session.post(CYCLE_URL)
+    return cycle.json().get('data')[0].get('id_ciclo')
 
 def get_student_info(session, url):
     info = session.post(url)
@@ -57,11 +56,13 @@ def get_all_id(USER_NAME, PORTAL_USER, PORTAL_PW):
     with requests.Session() as s:    
         s.post(LOGIN_URL, data=form_data_login)
         # Cycle id for grades
-        cycle = s.post(CYCLE_URL)
-        json.load(cycle)      
+        id_cycle = get_cycle_id(s, CYCLE_URL)
         # Student id for grades
         id_student = get_student_info(s, INFO_URL)
         newUser = User(username=USER_NAME, student_id = id_student, cycle_id = id_cycle)
         newUser.save()
         grades = get_all_grades_JSON(USER_NAME)  
         return grades
+
+def return_nothing():
+    return 'Nothing'

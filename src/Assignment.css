@@ -1,0 +1,11 @@
+.Assignment{
+  position: relative;
+  display: table;
+  width: auto;
+  margin: 0px;
+}
+
+.inliner{
+  display: inline-block;
+  margin: 10px;
+}
