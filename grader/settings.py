@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8+841%79z@lfevs^sw+o%(gocqi3n$sayss3j@!v2d6oqa#&m3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*.*.*.*', 'herokuapp.com']
 
 
 # Application definition
@@ -53,12 +53,7 @@ MIDDLEWARE = [
 ]
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = (
-    'localhost:8000',
-)
-CORS_ORIGIN_REGEX_WHITELIST = (
-    'localhost:8000',
-)
+
 ROOT_URLCONF = 'grader.urls'
 
 TEMPLATES = [
